@@ -5,9 +5,9 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  31337: {
+  11155111: {
     YourContract: {
-      address: "0x0165878a594ca255338adfa4d48449f69242eb8f",
+      address: "0x04C8218674517ECCdaA8bC82ec0DE5ffB735e38a",
       abi: [
         {
           type: "constructor",
@@ -22,12 +22,64 @@ const deployedContracts = {
         },
         {
           type: "function",
+          name: "getWinStatus",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "maxScoreDifference",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
           name: "pull",
           inputs: [
             {
               name: "isTeam1",
               type: "bool",
               internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "reSet",
+          inputs: [
+            {
+              name: "_maxScoreDifference",
+              type: "uint256",
+              internalType: "uint256",
             },
           ],
           outputs: [],
@@ -71,38 +123,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
-        },
-        {
-          type: "event",
-          name: "RopePositionChanged",
-          inputs: [
-            {
-              name: "newPosition",
-              type: "int256",
-              indexed: false,
-              internalType: "int256",
-            },
-          ],
-          anonymous: false,
-        },
-        {
-          type: "event",
-          name: "ScoreUpdated",
-          inputs: [
-            {
-              name: "team1Score",
-              type: "uint256",
-              indexed: false,
-              internalType: "uint256",
-            },
-            {
-              name: "team2Score",
-              type: "uint256",
-              indexed: false,
-              internalType: "uint256",
-            },
-          ],
-          anonymous: false,
         },
       ],
       inheritedFunctions: {},
