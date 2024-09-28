@@ -1,0 +1,160 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root,
+[data-theme] {
+  background: oklch(var(--b2));
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+.btn {
+  @apply shadow-md;
+}
+
+.btn.btn-ghost {
+  @apply shadow-none;
+}
+
+
+
+
+
+
+
+
+
+/* 拔河比赛样式 */
+.tug-of-war-container {
+  max-width: 2000px;  /* 增加最大宽度 */
+  margin: 0 auto;
+  padding: 40px;  /* 增加内边距 */
+  text-align: center;
+}
+
+
+.tug-of-war-title {
+  font-size: 3em;  /* 增大标题字体 */
+  margin-bottom: 30px;
+}
+
+.tug-of-war-score-board {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.tug-of-war-team1-score, .tug-of-war-team2-score {
+  font-size: 1.8em;  /* 增大得分字体 */
+  font-weight: bold;
+}
+
+.tug-of-war-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  margin-bottom: 30px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 0 50px;  /* 添加左右内边距 */
+}
+
+.tug-of-war-team1, .tug-of-war-team2 {
+  width: 100px;  /* 减小队伍名称区域宽度 */
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+}
+
+
+
+.tug-of-war-rope-line {
+  flex-grow: 1;
+  height: 15px;
+  background-color: #e1d5d5;
+  position: relative;
+  margin: 0 20px;
+  overflow: visible;
+  width: 200px;
+}
+
+.tug-of-war-flag {
+  position: absolute;
+  top: -60px; /* 调整旗子的垂直位置 */
+  left: 50%;
+  transform: translateX(calc(-50% + var(--flag-offset)));
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.tug-of-war-flag-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid red; /* 改为 border-top */
+}
+
+.tug-of-war-rope-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #0f0707;  /* 白色中心线 */
+  transform: translateX(-50%);
+}
+
+
+
+
+.tug-of-war-rope {
+  width: 30px;  /* 增大绳子圆点大小 */
+  height: 30px;
+  background-color: #f2e6e6;
+  border-radius: 50%;
+  position: relative;
+  top: -7px;
+  transition: left 0.3s ease;
+}
+
+.tug-of-war-controls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;  /* 增加与上方元素的间距 */
+}
+
+.tug-of-war-pull-button {
+  padding: 15px 30px;  /* 增大按钮尺寸 */
+  font-size: 1.5em;  /* 增大按钮文字 */
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tug-of-war-pull-button:hover {
+  background-color: #45a049;
+}
+
+
+
+
