@@ -1,21 +1,13 @@
-# 🏗 Scaffold-ETH 2
+# Demo on Monad Blockchain
 
 <h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
+  <a href="https://docs.monad.xyz/">Documentation</a> |
+  <a href="https://www.monad.xyz/">Website</a>
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+Monad is a layer 1 blockchain with 10,000 transactions per second, 1-second block times, single-slot finality, and low-hardware requirements.
 
-⚙️ Built using NextJS, RainbowKit, Foundry, Wagmi, Viem, and Typescript.
-
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
-
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+And this a demo is built on Monad.
 
 ## Requirements
 
@@ -27,12 +19,12 @@ Before you begin, you need to install the following tools:
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
+To get started with this demo, follow the steps below:
 
 1. Install dependencies if it was skipped in CLI:
 
 ```
-cd my-dapp-example
+git clone git@github.com:tokenlin/monad-demo.git
 yarn install
 ```
 
@@ -60,6 +52,16 @@ yarn start
 
 Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
 
+5. set .env 
+There are 2 .env files should be set.
+- Copy the `.env.example` file under the `packages/foundry` and modify it to `.env`.
+Then, make the configuration changes. and `DEPLOYER_PRIVATE_KEY` and `MONAD_RPC` are necessary to be added.
+
+- Copy the `.env.example` file under the `packages/nextjs/` and modify it to `.env`.
+Then, make the configuration changes. and `NEXT_PUBLIC_RPCURL_MONAD` is necessary to be added.
+
+## Test Contract on Locally
+
 Run smart contract test with `yarn foundry:test`
 
 - Edit your smart contract `YourContract.sol` in `packages/foundry/contracts`
@@ -67,14 +69,29 @@ Run smart contract test with `yarn foundry:test`
 - Edit your deployment scripts in `packages/foundry/script`
 
 
-## Documentation
+Then deploy the contract again on a second terminal:
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+```
+yarn deploy
+```
+Once depolyed again, visit app on: `http://localhost:3000` directly to test.
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
 
-## Contributing to Scaffold-ETH 2
+## Deploy Contract on Monad Testnet
+After the code is tested, you can depoly it on Monad Testnet. Please ensure that the `.env` file have been modified.
 
-We welcome contributions to Scaffold-ETH 2!
+Deploy the contract on the terminal:
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+```
+yarn deploy --network monad
+```
+
+Comment out the line 15 and turn on line 14 in `packages/nextjs/scaffold.config.ts`:
+```
+const scaffoldConfig = {
+  // The networks on which your DApp is live
+  targetNetworks: [monad, chains.sepolia],
+  // targetNetworks: [chains.foundry],
+```
+
+Switch to browser(http://localhost:3000), and connect wallet, switch to monad, then can click green buttom to send tx.
