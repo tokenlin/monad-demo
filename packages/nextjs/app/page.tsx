@@ -117,10 +117,10 @@ const Home: NextPage = () => {
         </p>
         {isPending && 'Confirming...'}
 
-        {/* {hash && <div>Transaction Hash:
-          <a href={`https://sepolia.etherscan.io/tx/${hash}`} target="_blank">{hash}</a>
-        </div>
-        } */}
+        {hash && <div>Transaction Hash:
+          <a href={`https://sepolia.etherscan.io/tx/${hash}`} target="_blank">{hash.substring(0, 6)+"..."+hash.substring(hash.length-4)}</a>
+          </div>
+        }
 
         {isConfirming && <div>Waiting for confirmation...</div>}
         {isConfirmed && <div>Transaction confirmed.</div>}
