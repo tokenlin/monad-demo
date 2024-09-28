@@ -1,4 +1,4 @@
-# Demo on Monad Blockchain
+# Tug of War Game Demo on Monad Blockchain
 
 <h4 align="center">
   <a href="https://docs.monad.xyz/">Documentation</a> |
@@ -8,6 +8,8 @@
 Monad is a layer 1 blockchain with 10,000 transactions per second, 1-second block times, single-slot finality, and low-hardware requirements.
 
 And this a demo is built on Monad.
+
+![Picture](./Project.png)
 
 ## Requirements
 
