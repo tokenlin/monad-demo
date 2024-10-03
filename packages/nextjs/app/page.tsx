@@ -20,32 +20,32 @@ const Home: NextPage = () => {
   const { data: ropePositionOnChain } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: 'ropePosition',
-    args: [],
+    // args: [],
   })
 
   const { data: maxScoreDifferenceOnChain } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: 'maxScoreDifference',
-    args: [],
+    // args: [],
   })
 
   const { data: team1ScoreOnChain } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: 'team1Score',
-    args: [],
+    // args: [],
   })
 
   const { data: team2ScoreOnChain } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: 'team2Score',
-    args: [],
+    // args: [],
   })
 
 
   const { data: winStatusOnChain } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: 'getWinStatus',
-    args: [],
+    // args: [],
   })
 
 

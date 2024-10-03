@@ -121,19 +121,6 @@ p {
   transform: translateX(-50%);
 }
 
-
-
-
-.tug-of-war-rope {
-  width: 30px;  /* 增大绳子圆点大小 */
-  height: 30px;
-  background-color: #f2e6e6;
-  border-radius: 50%;
-  position: relative;
-  top: -7px;
-  transition: left 0.3s ease;
-}
-
 .tug-of-war-controls {
   display: flex;
   justify-content: space-around;

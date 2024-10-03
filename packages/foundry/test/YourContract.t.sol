@@ -11,18 +11,22 @@ contract YourContractTest is Test {
     yourContract = new YourContract(vm.addr(1));
   }
 
-  // function testMessageOnDeployment() public view {
-  //   require(
-  //     keccak256(bytes(yourContract.greeting()))
-  //       == keccak256("Building Unstoppable Apps!!!")
-  //   );
-  // }
+  function testPull() public {
+    yourContract.pull(true);  // team1
+    require(yourContract.team1Score() == 1);
+    require(yourContract.ropePosition() == -1);
+  }
 
-  // function testSetNewMessage() public {
-  //   yourContract.setGreeting("Learn Scaffold-ETH 2! :)");
-  //   require(
-  //     keccak256(bytes(yourContract.greeting()))
-  //       == keccak256("Learn Scaffold-ETH 2! :)")
-  //   );
-  // }
+  function testPull2() public {
+    yourContract.pull(true);  // team1
+    require(yourContract.team1Score() == 1);
+    require(yourContract.ropePosition() == -1);
+  }
+
+  function testGetRopePosition() public view {
+    console.log(yourContract.ropePosition());
+    require(yourContract.ropePosition() == 0);
+  }
+
+
 }
