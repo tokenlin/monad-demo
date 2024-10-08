@@ -15,7 +15,7 @@ Before you begin, you need to install the following tools:
 - [Git](https://git-scm.com/downloads)
 - Scaffold-ETH2 toolkit: Type folder name you want, and choose Foundry
   ```
-  npx create-eth@latest
+  npx create-eth@0.0.55
   ```
 
 
