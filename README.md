@@ -13,7 +13,7 @@ Before you begin, you need to install the following tools:
 - [Node (>= v18.17)](https://nodejs.org/en/download/)
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
-- Scaffold-ETH2 toolkit: Type folder name you want, and choose Foundry
+- Scaffold-ETH2 toolkit: Type folder name you want, and choose `Foundry`
   ```
   npx create-eth@0.0.55
   ```
@@ -71,6 +71,8 @@ Copy the content of file `https://github.com/tokenlin/monad-demo/blob/main/packa
  
     We need to add private key prefixed with of "0x" to `DEPLOYER_PRIVATE_KEY`, and RPC to `MONAD_RPC`.
 
+    `NOTE`: `ALCHEMY_API_KEY` built-in is the public key for users. Sometimes it is restricted due to too many calls. It is recommended to change it to your own key.
+
 
 2. Set `monad` Chain
 
@@ -100,7 +102,10 @@ Copy the content of file `https://github.com/tokenlin/monad-demo/blob/main/packa
     ```
     yarn verify --network sepolia
     ```
-- `monad`: TBD
+- `monad`: Foundry contract verification does not support Monad Devnet, but will be enabled on Testnet by entering the command:
+  ```
+  yarn verify --network monad
+  ```
 
 
 
@@ -123,8 +128,6 @@ Copy the content of file `https://github.com/tokenlin/monad-demo/blob/main/packa
   In order to test on the local test network, firstly need to get local native token to pay gas, just click the right-top buttom to grab funds from faucet.
 
 
-
-
 2. Connect to Chain-`sepolia`
 
     Since `sepolia` is built into toolkit, there is no any modification.
@@ -139,11 +142,6 @@ Copy the content of file `https://github.com/tokenlin/monad-demo/blob/main/packa
 
   Add RPC to `NEXT_PUBLIC_RPCURL_MONAD` key in `packages/nextjs/.env`.
 
-- Add `route.ts`
-
-  Create new path `/api/proxy/` under the `packages/nextjs/app/`, the full path is `packages/nextjs/app/api/proxy/`
-
-  Create new file `route.ts`, and copy the file content `https://github.com/tokenlin/monad-demo/blob/main/packages/nextjs/app/api/proxy/route.ts`, and paste it into the new file `route.ts`.
 
 - Add `networks.monad.ts`
 
@@ -165,13 +163,19 @@ Copy the content of file `https://github.com/tokenlin/monad-demo/blob/main/packa
   // The networks on which your DApp is live
   // targetNetworks: [chains.foundry],  // comment out
   targetNetworks: [monad, chains.sepolia],  // add new networks
-  ...
+  
   ```
 
+4. UI Update Frequency
 
-
-
-
+    In order to refresh the UI quickly, we need to adjust the `pollingInterval` in the file `packages/nextjs/scaffold.config.ts`, for example, set to `2000`
+    ```
+    ...
+    // The interval at which your front-end polls the RPC servers for new data
+    // it has no effect if you only target the local network (default is 4000)
+    pollingInterval: 2000,  // change to 2000
+    ...
+    ```
 
 
 ## Metamask Wallet
